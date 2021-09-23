@@ -43,3 +43,20 @@ struct The_if{
 The_if ifArr[100];
 int ifArrPos = -1;
 static int IE=0, IEE=0; 
+
+
+
+int main(){
+	
+	cout << "Please enter your address: " ;
+	
+	char address[100];
+	cin >> address;
+	fstream cpp_file(address); 
+	
+	int table3[32] = {0};
+	for(int i=0;i<32;i++){
+		table3[i]=table1[i].length(); 
+	}
+	
+	string line;
