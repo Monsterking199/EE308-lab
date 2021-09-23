@@ -91,12 +91,12 @@ while(!cpp_file.eof()){
 ​						c[structNum].Da_kuo_hao_ready=true;
 ​					}
 ​					
-					if(c[structNum].switch_ready && c[structNum].Da_kuo_hao_ready ){
-						if( s.compare(table1[i])==0 && i==2){
-							caseArr[casePos]++;
-						}
-					}
-					
+​					if(c[structNum].switch_ready && c[structNum].Da_kuo_hao_ready ){
+​						if( s.compare(table1[i])==0 && i==2){
+​							caseArr[casePos]++;
+​						}
+​					}
+​					
 					if(c[structNum].switch_ready && c[structNum].Da_kuo_hao_ready && s.compare("}")==0){
 						structNum++;
 						casePos++;	
@@ -136,8 +136,9 @@ while(!cpp_file.eof()){
 			}
 		}
 		cout << endl; 
-	
-	
+
+
+​	
 		for(int i=0;i<100;i++){
 			if(ifArr[i].hasIf){
 				if(ifArr[i].elseIf) IEE++;
@@ -145,3 +146,9 @@ while(!cpp_file.eof()){
 			    }
 			}
 		} 
+		
+		cout << "if-else num: " << IE <<endl;
+		cout << "if-elseif-else num: " << IEE << endl;
+		
+		return 0;
+	}
