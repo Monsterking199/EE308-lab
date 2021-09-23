@@ -81,8 +81,9 @@ while(!cpp_file.eof()){
 					if( s.length()==table3[i] ){
 						if( s.compare(table1[i])==0 ){	table2[i]++; }   
 					}
-					
-					
+
+
+​					
 					if( s.compare(table1[i])==0 && i==25){
 						c[structNum].switch_ready=true;
 					}
@@ -102,3 +103,21 @@ while(!cpp_file.eof()){
 					}	
 				} 
 			}		
+			if( line.find("else if")>=0 && line.find("else if")<line.length()){
+				ifArr[ifArrPos].elseIf = true;
+			} else if( line.find("if")>=0 && line.find("if")<line.length()){
+			
+			    ifArrPos++;
+				while(ifArr[ifArrPos].hasElse && ifArrPos<100){  
+					ifArrPos++;
+				} 
+				ifArr[ifArrPos].hasIf = true;
+						
+			} else if ( line.find("else")>=0 && line.find("else")<line.length()) {
+				ifArr[ifArrPos].hasElse = true;
+				ifArrPos--;
+				while(ifArr[ifArrPos].hasElse==true && ifArrPos>=0){ 
+					ifArrPos--;
+				}
+			}
+		}
