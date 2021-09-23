@@ -47,16 +47,25 @@ static int IE=0, IEE=0;
 
 
 int main(){
+cout << "Please enter your address: " ;
+
+char address[100];
+cin >> address;
+fstream cpp_file(address); 
+
+int table3[32] = {0};
+for(int i=0;i<32;i++){
+	table3[i]=table1[i].length(); 
+}
+
+string line;
+
+while(!cpp_file.eof()){
+			getline(cpp_file, line); 
 	
-	cout << "Please enter your address: " ;
-	
-	char address[100];
-	cin >> address;
-	fstream cpp_file(address); 
-	
-	int table3[32] = {0};
-	for(int i=0;i<32;i++){
-		table3[i]=table1[i].length(); 
-	}
-	
-	string line;
+
+	for(int i=0;i<line.length();i++){
+		if( ! (line[i]>='a'&&line[i]<='z' || line[i]>='A'&&line[i]<='Z' || line[i]>='0'&&line[i]<='9' || line[i]=='{' || line[i]=='}' || line[i]=='_' || line[i]=='/' || line[i]=='"') ){    //把没用的符号变成空格 
+		    line[i]=' ';	
+		}
+	} 
