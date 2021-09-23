@@ -11,17 +11,6 @@ const string table1[32] = {"auto", "break",	"case",	"char",	"const", "continue",
                             "int",	"long",	"register",	"return", "short", "signed", "sizeof", "static",
                             "struct",	"switch",	"typedef",	"union", "unsigned", "void", "volatile", "while"};
 
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
-using namespace std;
-
-const string table1[32] = {"auto", "break",	"case",	"char",	"const", "continue","default",	"do",
-                            "double",	"else",	"enum",	"extern", "float", "for", "goto" , "if",
-                            "int",	"long",	"register",	"return", "short", "signed", "sizeof", "static",
-                            "struct",	"switch",	"typedef",	"union", "unsigned", "void", "volatile", "while"};
-
 static int table2[32] = {0};
 
 struct CaseNum{           
@@ -97,16 +86,16 @@ while(!cpp_file.eof()){
 ​						}
 ​					}
 ​					
-					if(c[structNum].switch_ready && c[structNum].Da_kuo_hao_ready && s.compare("}")==0){
-						structNum++;
-						casePos++;	
-					}	
-				} 
-			}		
-			if( line.find("else if")>=0 && line.find("else if")<line.length()){
-				ifArr[ifArrPos].elseIf = true;
-			} else if( line.find("if")>=0 && line.find("if")<line.length()){
-			
+​					if(c[structNum].switch_ready && c[structNum].Da_kuo_hao_ready && s.compare("}")==0){
+​						structNum++;
+​						casePos++;	
+​					}	
+​				} 
+​			}		
+​			if( line.find("else if")>=0 && line.find("else if")<line.length()){
+​				ifArr[ifArrPos].elseIf = true;
+​			} else if( line.find("if")>=0 && line.find("if")<line.length()){
+​			
 			    ifArrPos++;
 				while(ifArr[ifArrPos].hasElse && ifArrPos<100){  
 					ifArrPos++;
@@ -139,14 +128,14 @@ while(!cpp_file.eof()){
 
 
 ​	
-		for(int i=0;i<100;i++){
-			if(ifArr[i].hasIf){
-				if(ifArr[i].elseIf) IEE++;
-				else{   IE++;
-			    }
-			}
-		} 
-		
+​		for(int i=0;i<100;i++){
+​			if(ifArr[i].hasIf){
+​				if(ifArr[i].elseIf) IEE++;
+​				else{   IE++;
+​			    }
+​			}
+​		} 
+​		
 		cout << "if-else num: " << IE <<endl;
 		cout << "if-elseif-else num: " << IEE << endl;
 		
