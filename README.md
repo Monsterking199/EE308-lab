@@ -69,3 +69,36 @@ while(!cpp_file.eof()){
 		    line[i]=' ';	
 		}
 	} 
+	
+	string s;
+			istringstream is(line);      
+			
+			while(is>>s){
+				
+				if(s[0]=='"' || s[0]=='/')   continue;
+				
+				for(int i=0;i<32;i++){
+					if( s.length()==table3[i] ){
+						if( s.compare(table1[i])==0 ){	table2[i]++; }   
+					}
+					
+					
+					if( s.compare(table1[i])==0 && i==25){
+						c[structNum].switch_ready=true;
+					}
+					if( s.compare("{")==0 && c[structNum].switch_ready==true){
+						c[structNum].Da_kuo_hao_ready=true;
+					}
+					
+					if(c[structNum].switch_ready && c[structNum].Da_kuo_hao_ready ){
+						if( s.compare(table1[i])==0 && i==2){
+							caseArr[casePos]++;
+						}
+					}
+					
+					if(c[structNum].switch_ready && c[structNum].Da_kuo_hao_ready && s.compare("}")==0){
+						structNum++;
+						casePos++;	
+					}	
+				} 
+			}		
