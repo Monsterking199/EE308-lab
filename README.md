@@ -84,13 +84,13 @@ while(!cpp_file.eof()){
 
 
 ​					
-					if( s.compare(table1[i])==0 && i==25){
-						c[structNum].switch_ready=true;
-					}
-					if( s.compare("{")==0 && c[structNum].switch_ready==true){
-						c[structNum].Da_kuo_hao_ready=true;
-					}
-					
+​					if( s.compare(table1[i])==0 && i==25){
+​						c[structNum].switch_ready=true;
+​					}
+​					if( s.compare("{")==0 && c[structNum].switch_ready==true){
+​						c[structNum].Da_kuo_hao_ready=true;
+​					}
+​					
 					if(c[structNum].switch_ready && c[structNum].Da_kuo_hao_ready ){
 						if( s.compare(table1[i])==0 && i==2){
 							caseArr[casePos]++;
@@ -121,3 +121,27 @@ while(!cpp_file.eof()){
 				}
 			}
 		}
+		
+		int total;
+		for(int j=0;j<32;j++){
+			total+=table2[j];  
+		} 
+		cout << "total num: " << total << endl;
+		
+		cout << "switch num: " << table2[25] << endl;
+		cout << "case num: ";        
+		for(int i=0;i<100;i++){
+			if(caseArr[i]!=0){
+				cout <<caseArr[i] << " ";  
+			}
+		}
+		cout << endl; 
+	
+	
+		for(int i=0;i<100;i++){
+			if(ifArr[i].hasIf){
+				if(ifArr[i].elseIf) IEE++;
+				else{   IE++;
+			    }
+			}
+		} 
